@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>dirkiboysblog</title>
+	</head>
+
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+			width: 800px;
+			margin: 0 auto;
+			padding: 10px;
+		}
+
+		.error {
+			color: red
+		}
+
+		label {
+			display: block;
+			font-size: 20px;
+		}
+
+		input[type=text] {
+			width: 400px;
+			font-size: 20px;
+			padding: 20px;
+		}
+
+		textarea {
+			width: 400px;
+			height: 200px;
+			font-size: 17px;
+			font-family: monospace;
+		}
+
+		input[type=submit] {
+			font-size: 24px;
+		}
+
+		hr{
+			margin: 20px auto;
+		}
+
+		.art + .art {
+			margin-top: 20px;
+		}
+
+		.art-title {
+			font-weight: bold;
+			font-size: 17px;
+		}
+	</style>
+
+	<body>
+		<h1><a href="/">CS 253 Blog</a></h1>
+		
+	
+
+
+		<hr>
+
+		{% for art in arts %}
+		<div class="art">
+			<div class="art-title">{{art.title}}</div>
+			<i>{{art.created}}</i>
+			<pre class="art-body">{{art.art}}</pre>
+			<hr>
+		</div>
+		{% endfor %}
+		<a href="/newpost">new post</a>
+	</body>
