@@ -1,87 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-	<head>
-		<title>newpost</title>
+{% block content %}
+  <h2>new post</h2>
 
-		<style type="text/css">
-		body {
-			font-family: sans-serif;
-			width: 800px;
-			margin: 0 auto;
-			padding: 10px;
-		}
+    <form method="post">
+      <label>
+        <div>subject</div>
+        <input type="text" name="subject" value="{{subject}}">
+      </label>
 
-		.error {
-			color: red
-		}
+      <label>
+        <div>blog</div>
+        <textarea name="content">{{content}}</textarea>
+      </label>
 
-		label {
-			display: block;
-			font-size: 20px;
-		}
+      <div class="error">{{error}}</div>
 
-		input[type=text] {
-			width: 400px;
-			font-size: 20px;
-			padding: 20px;
-		}
-
-		textarea {
-			width: 400px;
-			height: 200px;
-			font-size: 17px;
-			font-family: monospace;
-		}
-
-		input[type=submit] {
-			font-size: 24px;
-		}
-
-		hr{
-			margin: 20px auto;
-		}
-
-		.art + .art {
-			margin-top: 20px;
-		}
-
-		.art-title {
-			font-weight: bold;
-			font-size: 17px;
-		}
-	</style>
-
-	</head>
-
-	<body>
-		
-
-
-		<h1>new blog post</h1>
-
-		<form method="post">
-			<label>
-				<div>subject</div>
-				<input type="text" name="subject" value={{title}}>
-			</label>
-
-			<label>
-				<div>blog</div>
-				<textarea name="content">{{art}}</textarea>
-			</label>
-
-			<div class="error">{{error}}</div>
-
-			<input type="submit">
-		</form>
-
-			{% for art in arts %}
-		<div class="art">
-			<div class="art-title">{{art.title}}</div>
-			<pre class="art-body">{{art.art}}</pre>
-		</div>
-		{% endfor %}
-
-		<a href="/">back to main</a>
-	</body>
+      <input type="submit">
+    </form>
+{% endblock %}
